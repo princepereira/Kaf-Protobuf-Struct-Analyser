@@ -1,0 +1,29 @@
+
+syntax = "proto3";
+
+package pbproto;
+
+enum Subject{
+  PHYSICS = 0;
+  CHEMISTRY = 1;
+  MATHS = 2;
+}
+
+message MarkReq{
+  int32 sl_no = 1;
+  string name = 2;
+  Subject subject = 3;
+}
+
+message MarkResp{
+  int32 sl_no = 1;
+  int32 name = 2;
+  Subject subject = 3;
+  int32 mark = 4; 
+}
+
+service StudentService{
+
+  rpc GetMark (MarkReq) returns (MarkResp); 
+
+}
